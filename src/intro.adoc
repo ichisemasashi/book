@@ -1,29 +1,12 @@
 [[introduction]]
 == Introduction
 
-Welcome reader! This is a book about scripting with Clojure and babashka.
-https://www.clojure.org[Clojure] is a functional, dynamic programming language
-from the Lisp family which runs on the JVM. Babashka is a scripting environment
-made with Clojure, compiled to native with https://www.graalvm.org[GraalVM]. The
-primary benefits of using babashka for scripting compared to the JVM are fast
-startup time and low memory consumption. Babashka comes with batteries included
-and packs libraries like `clojure.tools.cli` for parsing command line arguments
-and `cheshire` for working with JSON. Moreover, it can be installed just by
-downloading a self-contained binary.
+読者の皆さん、ようこそ。https://www.clojure.org[Clojure]は、JVM上で動作するLisp系の関数型動的プログラミング言語です。babashkaはClojureで作られたスクリプト環境で、https://www.graalvm.org[GraalVM]でネイティブにコンパイルされています。JVMと比較して、スクリプトにbabashkaを使用することの主な利点は、高速な起動時間と低メモリ消費です。ババシュカにはバッテリーが付属しており、コマンドライン引数を解析するための`clojure.tools.cli`やJSONを扱うための`cheshire`などのライブラリがパックされています。また、自己完結型のバイナリをダウンロードするだけでインストールできます。
 
 === Target audience
 
-Babashka is written for developers who are familiar with Clojure on
-the JVM. This book assumes familiarity with Clojure and is not a Clojure
-tutorial. If you aren't that familiar with Clojure but you're curious to learn,
-check out https://gist.github.com/yogthos/be323be0361c589570a6da4ccc85f58f[this]
-list of beginner resources.
+Babashkaは、JVM上のClojureに精通した開発者のために書かれています。この本はClojureに精通していることを前提としており、Clojureのチュートリアルではありません。Clojureにそれほど精通していないが、学びたいと思っている方は、https://gist.github.com/yogthos/be323be0361c589570a6da4ccc85f58f[この]初心者向けリソースのリストをご覧ください。
 
 === Setting expectations
 
-Babashka uses https://github.com/babashka/SCI[SCI] for interpreting Clojure. Sci
-implements a substantial subset of Clojure. Interpreting code is in general not
-as performant as executing compiled code. If your script takes more than a few
-seconds to run or has lots of loops, Clojure on the JVM may be a better fit, as
-the performance on JVM is going to outweigh its startup time penalty. Read more
-about the differences with Clojure link:#differences-with-clojure[here].
+BabashkaはClojureの解釈にhttps://github.com/babashka/SCI[SCI]を使用しています。SciはClojureの実質的なサブセットを実装しています。コードの解釈は一般的に、コンパイルされたコードを実行するほどの性能はありません。スクリプトの実行に数秒以上かかる場合や、ループが多い場合には、JVM上のClojureの方が適しているかもしれません。Clojureとの違いについては、リンク:#differences-with-clojure[こちら]をご覧ください。
