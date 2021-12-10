@@ -10,16 +10,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 $ script/compile
 ```
 
-This uses `asciidoctor` to spit out an HTML file into the `gh-pages` directory.
-To install `asciidoctor`, check the documentation [here](https://asciidoctor.org/).
+これは `asciidoctor` を使って、HTMLファイルを `gh-pages` ディレクトリに吐き出すものです。
+`aciidoctor` をインストールするには、ドキュメント [ここ](https://asciidoctor.org/)を参照してください。
 
 ## Release
 
-Files produced by asciidoctor are hosted on Github. This is set up like
-described
-[here](https://medium.com/linagora-engineering/deploying-your-js-app-to-github-pages-the-easy-way-or-not-1ef8c48424b7):
+asciidoctorで作成したファイルはGithubで公開しています。これは[こちら](https://medium.com/linagora-engineering/deploying-your-js-app-to-github-pages-the-easy-way-or-not-1ef8c48424b7)のように設定されています。
 
-All the commands below assume that you already have a git project initialized and that you are in its root folder.
+以下のすべてのコマンドは、すでにgitプロジェクトが初期化されていて、そのルートフォルダにいることを前提としています。
 
 ```
 # Create an orphan branch named gh-pages
@@ -32,8 +30,7 @@ git commit --allow-empty -m "Init empty branch"
 git push origin gh-pages
 ```
 
-Now that the branch is created and pushed to origin, let’s configure the
-worktree correctly.
+ブランチが作成され、オリジンにプッシュされたので、ワークツリーを正しく設定しましょう。
 
 ```
 # Come back to master
@@ -43,11 +40,9 @@ echo "gh-pages/" >> .gitignore
 git worktree add gh-pages gh-pages
 ```
 
-That’s it, you can now build your app as usual with npm run build . If you cd to
-the gh-pages folder, you will notice that you are now in the gh-pages branch and if
-you go back to the root folder, you will go back to master .
+以上で、通常通り npm run build でアプリをビルドできるようになりました。gh-pages フォルダに cd してみると、現在は gh-pages ブランチになっていて、ルートフォルダに戻ると master に戻っていることがわかります。
 
-To deploy to Github Pages:
+Github Pagesにデプロイするには。
 
 ```
 cd gh-pages
@@ -58,6 +53,6 @@ git push
 
 ## License
 
-Copyright © 2020-2021 Michiel Borkent
+著作権 © 2020-2021 Michiel Borkent
 
-Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0).
+Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)を使用しています。
