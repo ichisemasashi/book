@@ -1,27 +1,27 @@
 [[usage]]
 == Usage
 
-Typing `bb help` from the command line will print all the available command line options which should give you a sense of the available features in babashka.
+コマンドラインで`bb help`と入力すると、利用可能なすべてのコマンドラインオプションが表示され、babashkaの利用可能な機能を知ることができます。
 
 include::usage/help.adoc[]
 
 === Running a script
 
-Scripts may be executed from a file using `-f` or `--file`:
+スクリプトをファイルから実行するには、 `-f` または `--file` を使用します。
 
 [source,bash]
 ----
 bb -f download_html.clj
 ----
 
-The file may also be passed directly, without `-f`:
+ファイルは `-f` を付けずに直接渡すこともできます。
 
 [source,bash]
 ----
 bb download_html.clj
 ----
 
-Using `bb` with a shebang also works:
+shebangで `bb` を使うこともできます。
 
 [source,clojure]
 ----
@@ -38,7 +38,7 @@ Downloading url: https://www.clojure.org
 Writing file: /tmp/clojure.org.html
 ----
 
-If `/usr/bin/env` doesn't work for you, you can use the following workaround:
+もし、 `/usr/bin/env` ではうまくいかない場合は、以下のような回避策があります。
 
 [source,bash]
 ----
@@ -57,7 +57,7 @@ $ cat script.clj
 
 === Current file path
 
-The var `*file*` contains the full path of the file that is currently being executed:
+var `*file*` には、現在実行されているファイルのフルパスが入ります。
 
 [source,bash]
 ----
@@ -70,10 +70,10 @@ $ bb example.clj
 
 === Parsing command line arguments
 
-Command-line arguments can be retrieved using `*command-line-args*`. If you want to parse command line arguments, you may use the built-in `clojure.tools.cli` namespace:
+コマンドライン引数は `*command-line-args*` を使って取得することができます。コマンドライン引数を解析したい場合には、組み込みの `clojure.tools.cli` 名前空間を使用することができます。
 
 
-Babashka ships with `clojure.tools.cli`:
+Babashkaには、 `clojure.tools.cli` が同梱されています。
 
 [source,clojure]
 ----
@@ -98,13 +98,13 @@ $ bb script.clj -h
 {:port 80, :help true}
 ----
 
-There is also the https://github.com/borkdude/babashka/blob/master/doc/projects.md#nubankdocopt[nubank/docopt] library that is compatible with babashka.
+また、babashkaと互換性のある https://github.com/borkdude/babashka/blob/master/doc/projects.md#nubankdocopt[nubank/docopt] ライブラリもあります。
 
 === Classpath
 
-It is recommended to use `bb.edn` to control what directories and libraries are included on babashka's classpath. See <<project-setup>>
+babashkaのクラスパスに含まれるディレクトリやライブラリを制御するには、 `bb.edn` を使うことをお勧めします。 <<project-setup>> を参照してください。
 
-If you want a lower level to control babashka's classpath, without the usage of `bb.edn` you can use the `--classpath` option that will override the classpath.  Say we have a file `script/my/namespace.clj`:
+もし、 `bb.edn` を使わずに、babashkaのクラスパスを低レベルでコントロールしたい場合は、クラスパスをオーバーライドする `—classpath` オプションを使うことができます。 例えば、 `script/my/namespace.clj` というファイルがあるとします。
 
 [source,clojure]
 ----
@@ -113,7 +113,7 @@ If you want a lower level to control babashka's classpath, without the usage of 
   (apply println "Hello from my namespace!" args))
 ----
 
-Now we can execute this main function with:
+これで、このmain関数を実行することができます。
 
 [source,clojure]
 ----
@@ -121,7 +121,7 @@ $ bb --classpath script --main my.namespace 1 2 3
 Hello from my namespace! 1 2 3
 ----
 
-If you have a larger script with a classic Clojure project layout like
+このような古典的なClojureプロジェクトのレイアウトを持つ大きなスクリプトの場合は、以下のようになります。
 
 [source,bash]
 ----
@@ -138,25 +138,25 @@ $ tree -L 3
         └── test_utilities.clj
 ----
 
-then you can tell babashka to include both the `src` and `test` folders in the classpath and start a socket REPL by running:
+これを実行すると、クラスパスに `src` と `test` の両方のフォルダを含めるようにbabashkaに指示することができ、socket REPLを開始することができます。
 
 [source,bash]
 ----
 $ bb --classpath src:test socket-repl 1666
 ----
 
-If there is no `--classpath` argument, the `BABASHKA_CLASSPATH` environment variable will be used. If that variable isn't set either, babashka will use `:deps` and `:paths` from `bb.edn`.
+もし、 `--classpath` という引数がなければ、環境変数 `BABASHKA_CLASSPATH` が使われます。この変数が設定されていない場合、babashkaは `bb.edn` から `:deps` と `:path` を使用します。
 
-Also see the link:#babashka_classpath[babashka.classpath] namespace which allows dynamically adding to the classpath.
+ ink:#babashka_classpath[babashka.classpath] 名前空間も参照してください。この名前空間では、クラスパスを動的に追加することができます。
 
-The namespace link:#babashkadeps[babashka.deps] integrates https://github.com/clojure/tools.deps.alpha[tools.deps] with babashka and allows you to set the classpath using a `deps.edn` map.
+名前空間の link:#babashkadeps[babashka.deps] は、 https://github.com/clojure/tools.deps.alpha[tools.deps] をbabashkaと統合し、 `deps.edn` マップを使ってクラスパスを設定することができます。
 
 [[main-function]]
 === Invoking a main function
 
-A main function can be invoked with `-m` or `--main` like shown above. When given the argument `foo.bar`, the namespace `foo.bar` will be required and the function `foo.bar/-main` will be called with command line arguments as strings.
+メイン関数は上記のように `-m` または `--main` で呼び出すことができます。引数 `foo.bar` が与えられると、名前空間 `foo.bar` が要求され、コマンドライン引数を文字列として、関数 `foo.bar/-main` が呼び出されます。
 
-Since babashka 0.3.1 you may pass a fully qualified symbol to `-m`:
+babashka 0.3.1以降では、 `-m` に完全修飾されたシンボルを渡すことができます。
 
 [source,clojure]
 ----
@@ -164,13 +164,13 @@ $ bb -m clojure.core/prn 1 2 3
 "1" "2" "3"
 ----
 
-so you can execute any function as a main function, as long as it accepts the number of provided arguments.
+このように、提供された引数の数を受け付ける限り、任意の関数をメイン関数として実行することができます。
 
-When invoking `bb` with a main function, the expression `(System/getProperty "babashka.main")` will return the name of the main function.
+メイン関数を使って `bb` を起動すると、 `(System/getProperty "babashka.main")` という式がメイン関数の名前を返します。
 
 === Preloads
 
-The environment variable `BABASHKA_PRELOADS` allows to define code that will be available in all subsequent usages of babashka.
+環境変数 `BABASHKA_PRELOADS` を使って、以降のbabashkaの使用時に利用可能なコードを定義することができます。
 
 [source,bash]
 ----
@@ -179,7 +179,7 @@ BABASHKA_PRELOADS=$BABASHKA_PRELOADS' (defn bar [x] (* x 2))'
 export BABASHKA_PRELOADS
 ----
 
-Note that you can concatenate multiple expressions. Now you can use these functions in babashka:
+なお、複数の式を連結することも可能です。では、これらの関数をbabashkaで使ってみましょう。
 
 [source,bash]
 ----
@@ -187,14 +187,14 @@ $ bb '(-> (foo *input*) bar)' <<< 1
 6
 ----
 
-You can also preload an entire file using `load-file`:
+また、 `load-file` を使って、ファイル全体をプリロードすることもできます。
 
 [source,bash]
 ----
 export BABASHKA_PRELOADS='(load-file "my_awesome_prelude.clj")'
 ----
 
-Note that `*input*` is not available in preloads.
+なお、 `*input*` はプリロードでは使用できません。
 
 include::usage/repl.adoc[]
 
@@ -202,18 +202,18 @@ include::usage/io-flags.adoc[]
 
 === Uberscript
 
-The `--uberscript` option collects the expressions in `BABASHKA_PRELOADS`, the command line expression or file, the main entrypoint and all required namespaces from the classpath into a single file. This can be convenient for debugging and deployment.
+オプション `--uberscript` は `BABASHKA_PRELOADS` にある式、コマンドラインの式またはファイル、メインエントリーポイント、クラスパスから必要な全ての名前空間を一つのファイルに集めます。これは、デバッグやデプロイメントに便利です。
 
-Here is an example that uses a function from the https://github.com/clj-commons/fs[clj-commons/fs] library.
+ここでは、https://github.com/clj-commons/fs[clj-commons/fs] ライブラリの関数を使用した例を示します。
 
-Let's first set the classpath:
+まず、クラスパスを設定します。
 
 [source,clojure]
 ----
 $ export BABASHKA_CLASSPATH=$(clojure -Spath -Sdeps '{:deps {clj-commons/fs {:mvn/version "1.6.307"}}}')
 ----
 
-Write a little script, say `glob.clj`:
+小さなスクリプト、例えば `glob.clj` を書いてみてください。
 
 [source,clojure]
 ----
@@ -223,14 +223,14 @@ Write a little script, say `glob.clj`:
       (fs/glob (first *command-line-args*)))
 ----
 
-For testing, we'll make a file which we will find using the glob function:
+試しに、glob関数を使って検索するファイルを作ってみます。
 
 [source,bash]
 ----
 $ touch README.md
 ----
 
-Now we can execute the script which uses the library:
+これで、ライブラリを利用したスクリプトを実行できるようになりました。
 
 [source,bash]
 ----
@@ -239,14 +239,14 @@ $ time bb glob.clj '*.md'
 bb glob.clj '*.md'   0.03s  user 0.01s system 88% cpu 0.047 total
 ----
 
-Producing an uberscript with all required code:
+必要なコードをすべて含むuberscriptを作成すること。
 
 [source,bash]
 ----
 $ bb uberscript glob-uberscript.clj -f glob.clj
 ----
 
-To prove that we don't need the classpath anymore:
+クラスパスがもう必要ないことを証明するために。
 
 [source,bash]
 ----
@@ -256,11 +256,11 @@ $ time bb glob-uberscript.clj '*.md'
 bb glob-uberscript.clj '*.md'   0.03s  user 0.02s system 93% cpu 0.049 total
 ----
 
-Caveats:
+注意事項
 
-* _Dynamic requires_. Building uberscripts works by running top-level `ns` and `require` forms. The rest of the code is not evaluated. Code that relies on dynamic requires may not work in an uberscript. * _Resources_. The usage of `io/resource` assumes a classpath, so when this is used in your uberscript, you still have to set a classpath and bring the resources along.
+* 動的な要求(Dynamic requires)。uberscripts のビルドは、トップレベルの `ns` と `require` フォームを実行することで動作します。残りのコードは評価されません。動的な要求に依存するコードは、uberscript では動作しないかもしれません。* _Resources_. io/resource` の使用はクラスパスを想定しているので、これをuberscriptで使用する場合、やはりクラスパスを設定し、リソースを持参する必要があります。
 
-If any of the above is problematic for your project, using an link:#uberjar[uberjar] is a good alternative.
+上記のいずれかがプロジェクトにとって問題である場合、 link:#uberjar[uberjar] を使用することが良い代替方法となります。
 
 ==== Carve
 
