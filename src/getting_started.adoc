@@ -3,31 +3,22 @@
 
 === Installation
 
-Installing babashka is as simple as downloading the binary for your platform and
-placing it on your path. Pre-built binaries are provided on the
-https://github.com/borkdude/babashka/releases[releases] page of babashka's
-https://github.com/borkdude/babashka[Github repo]. Babashka is also available in
-various package managers like `brew` for macOS and linux and `scoop` for
-Windows. See https://github.com/borkdude/babashka#installation[here] for
-details.
+babashkaのインストールは、お使いのプラットフォーム用のバイナリをダウンロードしてパスに配置するだけで簡単です。プレビルドされたバイナリは、babashkaのhttps://github.com/borkdude/babashka[Github repo]のhttps://github.com/borkdude/babashka/releases[releases]ページで提供されています。Babashkaは、macOSやlinux用の`brew`やWindows用の`scoop`のような様々なパッケージマネージャでも利用できます。詳しくはhttps://github.com/borkdude/babashka#installation[こちら]をご覧ください。
 
 === Building from source
 
-If you would rather build babashka from source, download a copy of GraalVM and
-set the `GRAALVM_HOME` environment variable. Also make sure you have
-https://leiningen.org[lein] installed. Then run:
+babashkaをソースからビルドしたい場合は、GraalVMをダウンロードして、環境変数`GRAALVM_HOME`を設定してください。また、https://leiningen.org[lein]がインストールされていることを確認してください。そして、実行してください。
 
 ```
 $ git clone https://github.com/borkdude/babashka --recursive
 $ script/uberjar && script/compile
 ```
 
-See the babashka https://github.com/borkdude/babashka/blob/master/doc/build.md[build.md] page for details.
+詳しくはbabashka https://github.com/borkdude/babashka/blob/master/doc/build.md[build.md]のページをご覧ください。
 
 === Running babashka
 
-The babashka executable is called `bb`. You can either provide it with a Clojure
-expression directly:
+babashkaの実行ファイルは`bb`と呼ばれています。これをClojureの式で直接提供することもできます。
 
 [source,clojure]
 ----
@@ -35,7 +26,7 @@ $ bb -e '(+ 1 2 3)'
 6
 ----
 
-or run a script:
+またはスクリプトを実行します。
 
 .script.clj
 [source,clojure]
@@ -49,7 +40,7 @@ $ bb -f script.clj
 6
 ----
 
-The `-e` flag is optional when the argument starts with a paren. In that case babashka will treat it automatically as an expression:
+引数がパレンで始まる場合、`-e`フラグはオプションです。その場合、babashkaは自動的にそれを式として扱います。
 
 [source,clojure]
 ----
@@ -57,7 +48,7 @@ $ bb '(+ 1 2 3)'
 6
 ----
 
-Similarly, the `-f` flag is optional when the argument is a filename:
+同様に、引数がファイル名の場合、`-f` フラグはオプションです。
 
 [source,clojure]
 ----
@@ -65,7 +56,7 @@ $ bb script.clj
 6
 ----
 
-Commonly, scripts have shebangs so you can invoke them with their filename only:
+一般的に、スクリプトにはシェバンが付いていて、ファイル名だけで起動できるようになっています。
 
 .script.clj
 [source,clojure]
