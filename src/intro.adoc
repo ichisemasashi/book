@@ -1,7 +1,7 @@
 [[introduction]]
 == Introduction
 
-読者の皆さん、ようこそ。 https://www.clojure.org[Clojure] は、JVM上で動作するLisp系の関数型動的プログラミング言語です。babashkaはClojureで作られたスクリプト環境で、 https://www.graalvm.org[GraalVM] でネイティブにコンパイルされています。JVMと比較して、スクリプトにbabashkaを使用することの主な利点は、高速な起動時間と低メモリ消費です。ババシュカにはバッテリーが付属しており、コマンドライン引数を解析するための`clojure.tools.cli`やJSONを扱うための`cheshire`などのライブラリがパックされています。また、自己完結型のバイナリをダウンロードするだけでインストールできます。
+読者の皆さん、ようこそ。 https://www.clojure.org[Clojure] は、JVM上で動作するLisp系の関数型動的プログラミング言語です。babashkaはClojureで作られたスクリプト環境で、 https://www.graalvm.org[GraalVM] でネイティブにコンパイルされています。JVMと比較して、スクリプトにbabashkaを使用することの主な利点は、高速な起動時間と低メモリ消費です。ババシュカにはバッテリーが付属しており、コマンドライン引数を解析するための `clojure.tools.cli` やJSONを扱うための `cheshire` などのライブラリがパックされています。また、自己完結型のバイナリをダウンロードするだけでインストールできます。
 
 === Target audience
 
