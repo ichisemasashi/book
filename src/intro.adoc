@@ -1,12 +1,12 @@
 [[introduction]]
 == Introduction
 
-読者の皆さん、ようこそ。https://www.clojure.org[Clojure]は、JVM上で動作するLisp系の関数型動的プログラミング言語です。babashkaはClojureで作られたスクリプト環境で、https://www.graalvm.org[GraalVM]でネイティブにコンパイルされています。JVMと比較して、スクリプトにbabashkaを使用することの主な利点は、高速な起動時間と低メモリ消費です。ババシュカにはバッテリーが付属しており、コマンドライン引数を解析するための`clojure.tools.cli`やJSONを扱うための`cheshire`などのライブラリがパックされています。また、自己完結型のバイナリをダウンロードするだけでインストールできます。
+読者の皆さん、ようこそ。https://www.clojure.org [Clojure]は、JVM上で動作するLisp系の関数型動的プログラミング言語です。babashkaはClojureで作られたスクリプト環境で、https://www.graalvm.org [GraalVM]でネイティブにコンパイルされています。JVMと比較して、スクリプトにbabashkaを使用することの主な利点は、高速な起動時間と低メモリ消費です。ババシュカにはバッテリーが付属しており、コマンドライン引数を解析するための`clojure.tools.cli`やJSONを扱うための`cheshire`などのライブラリがパックされています。また、自己完結型のバイナリをダウンロードするだけでインストールできます。
 
 === Target audience
 
-Babashkaは、JVM上のClojureに精通した開発者のために書かれています。この本はClojureに精通していることを前提としており、Clojureのチュートリアルではありません。Clojureにそれほど精通していないが、学びたいと思っている方は、https://gist.github.com/yogthos/be323be0361c589570a6da4ccc85f58f[この]初心者向けリソースのリストをご覧ください。
+Babashkaは、JVM上のClojureに精通した開発者のために書かれています。この本はClojureに精通していることを前提としており、Clojureのチュートリアルではありません。Clojureにそれほど精通していないが、学びたいと思っている方は、https://gist.github.com/yogthos/be323be0361c589570a6da4ccc85f58f [この]初心者向けリソースのリストをご覧ください。
 
 === Setting expectations
 
-BabashkaはClojureの解釈にhttps://github.com/babashka/SCI[SCI]を使用しています。SciはClojureの実質的なサブセットを実装しています。コードの解釈は一般的に、コンパイルされたコードを実行するほどの性能はありません。スクリプトの実行に数秒以上かかる場合や、ループが多い場合には、JVM上のClojureの方が適しているかもしれません。Clojureとの違いについては、リンク:#differences-with-clojure[こちら]をご覧ください。
+BabashkaはClojureの解釈にhttps://github.com/babashka/SCI [SCI]を使用しています。SciはClojureの実質的なサブセットを実装しています。コードの解釈は一般的に、コンパイルされたコードを実行するほどの性能はありません。スクリプトの実行に数秒以上かかる場合や、ループが多い場合には、JVM上のClojureの方が適しているかもしれません。Clojureとの違いについては、リンク:#differences-with-clojure[こちら]をご覧ください。
