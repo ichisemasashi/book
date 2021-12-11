@@ -3,22 +3,22 @@
 
 === Installation
 
-babashkaのインストールは、お使いのプラットフォーム用のバイナリをダウンロードしてパスに配置するだけで簡単です。プレビルドされたバイナリは、babashkaのhttps://github.com/borkdude/babashka[Github repo]のhttps://github.com/borkdude/babashka/releases[releases]ページで提供されています。Babashkaは、macOSやlinux用の`brew`やWindows用の`scoop`のような様々なパッケージマネージャでも利用できます。詳しくはhttps://github.com/borkdude/babashka#installation[こちら]をご覧ください。
+babashkaのインストールは、お使いのプラットフォーム用のバイナリをダウンロードしてパスに配置するだけで簡単です。プレビルドされたバイナリは、babashkaの https://github.com/borkdude/babashka[Github repo] の https://github.com/borkdude/babashka/releases[releases] ページで提供されています。Babashkaは、macOSやlinux用の `brew` やWindows用の `scoop` のような様々なパッケージマネージャでも利用できます。詳しくは https://github.com/borkdude/babashka#installation[こちら] をご覧ください。
 
 === Building from source
 
-babashkaをソースからビルドしたい場合は、GraalVMをダウンロードして、環境変数`GRAALVM_HOME`を設定してください。また、https://leiningen.org[lein]がインストールされていることを確認してください。そして、実行してください。
+babashkaをソースからビルドしたい場合は、GraalVMをダウンロードして、環境変数 `GRAALVM_HOME` を設定してください。また、 https://leiningen.org[lein] がインストールされていることを確認してください。そして、実行してください。
 
 ```
 $ git clone https://github.com/borkdude/babashka --recursive
 $ script/uberjar && script/compile
 ```
 
-詳しくはbabashka https://github.com/borkdude/babashka/blob/master/doc/build.md[build.md]のページをご覧ください。
+詳しくはbabashka https://github.com/borkdude/babashka/blob/master/doc/build.md[build.md] のページをご覧ください。
 
 === Running babashka
 
-babashkaの実行ファイルは`bb`と呼ばれています。これをClojureの式で直接提供することもできます。
+babashkaの実行ファイルは `bb` と呼ばれています。これをClojureの式で直接提供することもできます。
 
 [source,clojure]
 ----
@@ -40,7 +40,7 @@ $ bb -f script.clj
 6
 ----
 
-引数がパレンで始まる場合、`-e`フラグはオプションです。その場合、babashkaは自動的にそれを式として扱います。
+引数がパレンで始まる場合、 `-e` フラグはオプションです。その場合、babashkaは自動的にそれを式として扱います。
 
 [source,clojure]
 ----
@@ -48,7 +48,7 @@ $ bb '(+ 1 2 3)'
 6
 ----
 
-同様に、引数がファイル名の場合、`-f` フラグはオプションです。
+同様に、引数がファイル名の場合、 `-f` フラグはオプションです。
 
 [source,clojure]
 ----
