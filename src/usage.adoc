@@ -264,7 +264,7 @@ bb glob-uberscript.clj '*.md'   0.03s  user 0.02s system 93% cpu 0.049 total
 
 ==== Carve
 
-Uberscripts can be optimized by cutting out unused vars with https://github.com/borkdude/carve[carve].
+Uberscriptsは、 https://github.com/borkdude/carve[carve] で使用しないバーをカットすることで最適化することができます。
 
 [source,bash]
 ----
@@ -275,7 +275,7 @@ $ wc -l glob-uberscript.clj
      105 glob-uberscript.clj
 ----
 
-Note that the uberscript became 72% shorter. This has a beneficial effect on execution time:
+uberscriptが72%短くなったことに注目してほしい。これは実行時間に対して有益な効果である。
 
 [source,bash]
 ----
@@ -286,7 +286,7 @@ bb glob-uberscript.clj '*.md'   0.02s  user 0.01s system 84% cpu 0.034 total
 
 === Uberjar
 
-Babashka can create uberjars from a given classpath and optionally a main method:
+Babashkaは指定されたクラスパスと、オプションでメインメソッドからユーバージャーを作成することができます。
 
 [source,clojure]
 ----
@@ -297,7 +297,7 @@ $ bb foo.jar
 :hello
 ----
 
-When producing a classpath using the `clojure` or `deps.clj` tool, Clojure itself, spec and the core specs will be on the classpath and will therefore be included in your uberjar, which makes it bigger than necessary:
+`clojure` や `deps.clj` ツールを使ってクラスパスを作成すると、Clojure 自身やspec、コアスペックがクラスパスに含まれるため、uberjar が必要以上に肥大化することになります。
 
 [source,bash]
 ----
@@ -305,7 +305,7 @@ $ ls -lh foo.jar
 -rw-r--r--  1 borkdude  staff   4.5M Aug 19 17:04 foo.jar
 ----
 
-To exclude these dependencies, you can use the following `:classpath-overrides` in your `deps.edn`:
+これらの依存関係を除外するには、`deps.edn` で以下の `:classpath-overrides` を使用します。
 
 [source,clojure]
 ----
@@ -324,7 +324,7 @@ $ ls -lh foo.jar
 -rw-r--r--  1 borkdude  staff   871B Aug 19 17:07 foo.jar
 ----
 
-If you want your uberjar to be compatible with the JVM, you'll need to compile the main namespace. Babashka does not do compilation, so we use Clojure on the JVM for that part:
+uberjarをJVMに対応させたい場合は、mainの名前空間をコンパイルする必要があります。Babashkaはコンパイルを行わないので、その部分はJVM上のClojureを使用します。
 
 [source,clojure]
 ----
