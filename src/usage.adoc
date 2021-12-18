@@ -339,18 +339,17 @@ $ java -jar foo.jar
 :hello
 ----
 
-=== System properties
+=== システムプロパティ
 
-Babashka sets the following system properties:
+ババシュカでは、以下のシステムプロパティを設定します。
 
-* `babashka.version`: the version string, e.g. `"1.2.0"`
-* `babashka.main`: the `--main` argument
-* `babashka.file`: the `--file` argument (normalized using
-`.getAbsolutePath`)
+* `babashka.version`: バージョンの文字列 (例: `"1.2.0"`)
+* `babashka.main`: 引数 `--main` です。
+* `babashka.file`: `--file` 引数 (`.getAbsolutePath` を使用して正規化)
 
-=== Data readers
+=== データリーダー
 
-Data readers can be enabled by setting `*data-readers*` to a hashmap of symbols to functions or vars:
+データリーダを有効にするには、`*data-readers*` にシンボルと関数またはバーのハッシュマップを設定します。
 
 [source,clojure]
 ----
@@ -358,7 +357,7 @@ $ bb -e "(set! *data-readers* {'t/tag inc}) #t/tag 1"
 2
 ----
 
-To preserve good startup time, babashka does not scan the classpath for `data_readers.clj` files.
+良好なスタートアップ時間を維持するために、babashkaはクラスパスで `data_readers.clj` ファイルをスキャンしません。
 
 === Reader conditionals
 
