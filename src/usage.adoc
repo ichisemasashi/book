@@ -359,9 +359,9 @@ $ bb -e "(set! *data-readers* {'t/tag inc}) #t/tag 1"
 
 良好なスタートアップ時間を維持するために、babashkaはクラスパスで `data_readers.clj` ファイルをスキャンしません。
 
-=== Reader conditionals
+=== リーダー条件
 
-Babashka supports reader conditionals by taking either the `:bb` or `:clj` branch, whichever comes first. NOTE: the `:clj` branch behavior was added in version 0.0.71, before that version the `:clj` branch was ignored.
+Babashka はリーダー条件分岐をサポートしており、 `:bb` または `:clj` 分岐のどちらか先に来る方を使用します。注意: `:clj` ブランチの動作はバージョン 0.0.71 で追加されたもので、それ以前のバージョンでは `:clj` ブランチは無視される。
 
 [source,clojure]
 ----
@@ -375,9 +375,9 @@ $ bb -e "[1 2 #?@(:bb [] :clj [1])]"
 [1 2]
 ----
 
-=== Invoking clojure
+=== clojureの起動
 
-Babashka bundles https://github.com/borkdude/deps.clj[deps.clj] for invoking a `clojure` JVM process:
+Babashka は `clojure` JVM プロセスを呼び出すために https://github.com/borkdude/deps.clj[deps.clj] をバンドルしています。
 
 [source,clojure]
 ----
@@ -385,4 +385,4 @@ $ bb clojure -M -e "*clojure-version*"
 {:major 1, :minor 10, :incremental 1, :qualifier nil}
 ----
 
-See the link:#_clojure[clojure] function in the link:#babashkadeps[babashka.deps] namespace for programmatically invoking clojure.
+プログラム的にclojureを呼び出すために、 link:#babashkadeps[babashka.deps] 名前空間内の link:#_clojure[clojure] 関数を参照してください。
